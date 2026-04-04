@@ -358,32 +358,33 @@ body {
   animation: fadeUp 0.8s cubic-bezier(.22,1,.36,1) 0.75s both;
 }
 
-.btn-primary {
+.btn-play {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
+  gap: 14px;
+  padding: 18px 40px;
   background: linear-gradient(135deg, var(--gray-900) 0%, #333 100%);
   color: #fff;
-  border-radius: 14px;
+  border-radius: 18px;
   text-decoration: none;
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   font-weight: 700;
   transition: transform 0.25s, box-shadow 0.25s;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.1);
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary::after {
+.btn-play::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
   pointer-events: none;
 }
 
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.btn-play:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+.btn-play svg { width: 22px; height: 22px; }
 
 .btn-secondary {
   display: inline-flex;
@@ -1663,7 +1664,7 @@ footer a:hover { color: #fff; }
   </div>
 
   <div class="hero-cta">
-    <a href="https://play.google.com/store/apps/details?id=com.young.ielts_prep" class="btn-primary" target="_blank" rel="noopener">
+    <a href="https://play.google.com/store/apps/details?id=com.young.ielts_prep" class="btn-play" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.396 12l2.302-2.302zM5.864 2.658L16.8 9.99l-2.302 2.302-8.635-8.635z"/></svg>
       Google Play에서 다운로드
     </a>
