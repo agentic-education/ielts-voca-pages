@@ -31,10 +31,10 @@
   --nav-h: 64px;
 }
 
-html { scroll-behavior: smooth; }
-
 html {
-  overflow-x: clip; /* clip은 hidden과 달리 새 BFC를 생성하지 않아 리플로우 최소화 */
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  background: #fff;
 }
 
 body {
@@ -221,7 +221,7 @@ body {
 
 /* ─── Hero ─── */
 .hero {
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
