@@ -2129,7 +2129,12 @@ const WORDS = [
   { word: "allocate", pos: "verb", band: "Band 6.5+", meaning: "배분하다, 할당하다", en: "The government should allocate more resources to public healthcare.", ko: "정부는 공공 의료에 더 많은 자원을 배분해야 한다." },
 ];
 
-let currentWordIndex = new Date().getDate() % WORDS.length;
+// 연+월+일 기반 해시로 365일 내 중복 최소화
+function dayHash(d) {
+  const n = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+  return ((n * 2654435761) >>> 0) % WORDS.length;
+}
+let currentWordIndex = dayHash(new Date());
 
 function renderWord() {
   const w = WORDS[currentWordIndex];
