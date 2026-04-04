@@ -628,130 +628,6 @@ body {
 
 .compare-table td:first-child { font-weight: 600; color: var(--gray-800); }
 
-/* ─── Daily Teaser ─── */
-.daily-teaser {
-  padding: 80px 24px;
-  background: var(--gray-900);
-  position: relative;
-  overflow: hidden;
-}
-
-.daily-teaser::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 25% 40%, rgba(249,115,22,0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 75% 60%, rgba(52,211,153,0.06) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.daily-teaser-inner {
-  position: relative;
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.daily-teaser-label {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 10px;
-}
-
-.daily-teaser-title {
-  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 14px;
-}
-
-.daily-teaser-desc {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 36px;
-  line-height: 1.6;
-}
-
-.daily-teaser-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 32px;
-}
-
-@media (max-width: 500px) { .daily-teaser-cards { grid-template-columns: 1fr; } }
-
-.daily-teaser-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 28px 24px;
-  text-align: left;
-  position: relative;
-  overflow: hidden;
-}
-
-.daily-teaser-card::before {
-  content: '';
-  position: absolute;
-  top: -40px; right: -40px;
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  opacity: 0.05;
-  pointer-events: none;
-}
-
-.daily-teaser-card.word-preview::before { background: var(--orange); }
-.daily-teaser-card.colloc-preview::before { background: var(--green); }
-
-.dtc-tag {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
-.word-preview .dtc-tag { color: var(--orange); }
-.colloc-preview .dtc-tag { color: var(--green); }
-
-.dtc-word {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.4rem, 4vw, 1.8rem);
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 6px;
-}
-
-.dtc-meaning {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.5);
-}
-
-.daily-teaser-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
-  color: #fff;
-  border-radius: 14px;
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 6px 24px rgba(249,115,22,0.3);
-}
-
-.daily-teaser-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(249,115,22,0.4); }
-.daily-teaser-btn svg { width: 18px; height: 18px; }
-
 /* ─── Features ─── */
 .features {
   padding: 110px 24px;
@@ -1631,7 +1507,6 @@ footer a:hover { color: #fff; }
   </a>
   <ul class="nav-links">
     <li><a href="vocab.html">단어 학습</a></li>
-    <li><a href="#daily">데일리 영어</a></li>
     <li><a href="#guide">시험 가이드</a></li>
     <li><a href="#features">학습 기능</a></li>
     <li><a href="#bands">밴드 가이드</a></li>
@@ -1649,7 +1524,6 @@ footer a:hover { color: #fff; }
 
 <div class="nav-mobile-menu" id="navMobile">
   <a href="vocab.html" onclick="closeMobile()">단어 학습</a>
-  <a href="#daily" onclick="closeMobile()">데일리 영어</a>
   <a href="#guide" onclick="closeMobile()">시험 가이드</a>
   <a href="#features" onclick="closeMobile()">학습 기능</a>
   <a href="#bands" onclick="closeMobile()">밴드 가이드</a>
@@ -1831,30 +1705,6 @@ footer a:hover { color: #fff; }
   </div>
 </section>
 
-<!-- Daily English Teaser -->
-<section class="daily-teaser" id="daily">
-  <div class="daily-teaser-inner reveal">
-    <div class="daily-teaser-label en">Daily IELTS English</div>
-    <h2 class="daily-teaser-title">매일 새로운 IELTS 영어</h2>
-    <p class="daily-teaser-desc">IELTS 고빈도 어휘와 콜로케이션을 매일 하나씩 학습하세요.<br>북마크에 추가하면 매일 바로 확인할 수 있습니다.</p>
-    <div class="daily-teaser-cards">
-      <div class="daily-teaser-card word-preview">
-        <div class="dtc-tag en">Word of the Day</div>
-        <div class="dtc-word en" id="teaserWord"></div>
-        <div class="dtc-meaning" id="teaserWordMeaning"></div>
-      </div>
-      <div class="daily-teaser-card colloc-preview">
-        <div class="dtc-tag en">Collocation of the Day</div>
-        <div class="dtc-word en" id="teaserColloc"></div>
-        <div class="dtc-meaning" id="teaserCollocMeaning"></div>
-      </div>
-    </div>
-    <a href="daily.html" class="daily-teaser-btn">
-      오늘의 학습 바로가기
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-</section>
 
 <!-- Features -->
 <section class="features" id="features">
@@ -2279,21 +2129,6 @@ function closeMobile() {
   navOverlay.classList.remove('open');
 }
 
-// ─── Daily Teaser (today's word & collocation preview) ───
-(function() {
-  var TEASER_WORDS = ["ubiquitous","exacerbate","mitigate","unprecedented","detrimental","fluctuate","deteriorate","facilitate","substantial","prevalent","ambiguous","alleviate","paradox","inevitable","implement","proliferate","versatile","scrutinise","undermine","inherent","disparity","plausible","conducive","encompass","pragmatic","susceptible","eradicate","diminish","compelling","allocate"];
-  var TEASER_MEANINGS = ["어디에나 있는","악화시키다","완화하다","전례 없는","해로운","변동하다","악화되다","촉진하다","상당한","널리 퍼진","모호한","완화하다","역설","불가피한","시행하다","급속히 증가하다","다재다능한","면밀히 조사하다","약화시키다","내재하는","격차","그럴듯한","도움이 되는","포괄하다","실용적인","취약한","근절하다","줄어들다","설득력 있는","배분하다"];
-  var TEASER_COLLOCS = ["make a decision","take advantage of","pay attention to","do research","have an impact on","raise awareness","draw a conclusion","pose a threat","meet a deadline","reach a consensus","undergo a transformation","place emphasis on","conduct a survey","bear in mind","gain insight into","take into account","come to terms with","shed light on","give rise to","run the risk of","take measures","bridge the gap","play a role in","face a challenge","keep pace with","break new ground","hold the view that","set a precedent","exert influence on","lend support to"];
-  var TEASER_CMEANINGS = ["결정을 내리다","~을 이용하다","~에 주의를 기울이다","연구하다","~에 영향을 미치다","인식을 높이다","결론을 내리다","위협이 되다","마감 기한을 맞추다","합의에 도달하다","변화를 겪다","~을 강조하다","설문조사를 실시하다","~을 명심하다","~에 대한 통찰을 얻다","~을 고려하다","~을 받아들이다","~을 밝히다","~을 야기하다","~의 위험을 감수하다","조치를 취하다","격차를 해소하다","~에서 역할을 하다","도전에 직면하다","~에 보조를 맞추다","새 지평을 열다","~라는 견해를 갖다","선례를 만들다","~에 영향력을 행사하다","~을 뒷받침하다"];
-  var d = new Date();
-  var n = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-  var wi = ((n * 2654435761) >>> 0) % TEASER_WORDS.length;
-  var ci = (((n * 2654435761) >>> 0) % TEASER_COLLOCS.length + 7) % TEASER_COLLOCS.length;
-  document.getElementById('teaserWord').textContent = TEASER_WORDS[wi];
-  document.getElementById('teaserWordMeaning').textContent = TEASER_MEANINGS[wi];
-  document.getElementById('teaserColloc').textContent = TEASER_COLLOCS[ci];
-  document.getElementById('teaserCollocMeaning').textContent = TEASER_CMEANINGS[ci];
-})();
 
 // ─── Mini Quiz ───
 var QUIZ_POOL = [
