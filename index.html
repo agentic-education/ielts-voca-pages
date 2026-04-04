@@ -168,41 +168,67 @@ body {
   display: none;
   position: fixed;
   top: var(--nav-h); left: 0; right: 0;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 20px 28px 28px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  padding: 16px 20px 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
   z-index: 99;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .nav-mobile-menu.open { display: flex; }
 
 .nav-mobile-menu a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 14px;
   padding: 14px 16px;
-  border-radius: 12px;
-  font-size: 0.95rem;
+  border-radius: 14px;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--gray-800);
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.15s;
 }
 
+.nav-mobile-menu a:active { transform: scale(0.97); }
 .nav-mobile-menu a:hover { background: var(--gray-100); }
 
-.nav-mobile-menu .nav-cta {
-  margin-top: 12px;
-  text-align: center;
+.nav-mobile-menu a .menu-icon {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 14px;
-  font-size: 0.95rem;
-  background: var(--gray-900);
-  color: #fff;
-  border-radius: 12px;
+  width: 38px; height: 38px;
+  border-radius: 11px;
+  background: var(--gray-100);
+  flex-shrink: 0;
 }
+
+.nav-mobile-menu a .menu-icon svg { width: 18px; height: 18px; color: var(--gray-600); }
+
+.nav-mobile-menu a .menu-text { display: flex; flex-direction: column; gap: 2px; }
+.nav-mobile-menu a .menu-text .menu-sub {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--gray-400);
+  letter-spacing: -0.2px;
+}
+
+.nav-mobile-menu a.menu-highlight {
+  background: var(--orange-light);
+  border: 1.5px solid rgba(249,115,22,0.15);
+}
+
+.nav-mobile-menu a.menu-highlight .menu-icon {
+  background: var(--orange);
+}
+
+.nav-mobile-menu a.menu-highlight .menu-icon svg { color: #fff; }
+.nav-mobile-menu a.menu-highlight .menu-text { color: var(--orange-deep); }
+.nav-mobile-menu a.menu-highlight .menu-sub { color: var(--orange); }
+.nav-mobile-menu a.menu-highlight:hover { background: #fff0e0; }
 
 .nav-mobile-overlay {
   display: none;
@@ -1523,12 +1549,30 @@ footer a:hover { color: #fff; }
 </nav>
 
 <div class="nav-mobile-menu" id="navMobile">
-  <a href="vocab.html" onclick="closeMobile()">단어 학습</a>
-  <a href="#guide" onclick="closeMobile()">시험 가이드</a>
-  <a href="#features" onclick="closeMobile()">학습 기능</a>
-  <a href="#bands" onclick="closeMobile()">밴드 가이드</a>
-  <a href="#tips" onclick="closeMobile()">학습 꿀팁</a>
-  <a href="#pricing" onclick="closeMobile()">요금제</a>
+  <a href="vocab.html" onclick="closeMobile()" class="menu-highlight">
+    <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></span>
+    <span class="menu-text">단어 학습<span class="menu-sub">4,800개 IELTS 필수 어휘</span></span>
+  </a>
+  <a href="#guide" onclick="closeMobile()">
+    <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+    <span class="menu-text">시험 가이드<span class="menu-sub">IELTS 시험 완벽 정리</span></span>
+  </a>
+  <a href="#features" onclick="closeMobile()">
+    <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg></span>
+    <span class="menu-text">학습 기능<span class="menu-sub">플래시카드·퀴즈·SRS 복습</span></span>
+  </a>
+  <a href="#bands" onclick="closeMobile()">
+    <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 9.2h3V19H5V9.2zM10.6 5h2.8v14h-2.8V5zm5.6 8H19v6h-2.8v-6z"/></svg></span>
+    <span class="menu-text">밴드 가이드<span class="menu-sub">4.0~8.0 수준별 안내</span></span>
+  </a>
+  <a href="#tips" onclick="closeMobile()">
+    <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg></span>
+    <span class="menu-text">학습 꿀팁<span class="menu-sub">효과적인 IELTS 공부법</span></span>
+  </a>
+  <a href="#pricing" onclick="closeMobile()">
+    <span class="menu-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></span>
+    <span class="menu-text">요금제<span class="menu-sub">무료 학습 · 프리미엄 옵션</span></span>
+  </a>
 </div>
 <div class="nav-mobile-overlay" id="navOverlay"></div>
 
