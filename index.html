@@ -350,41 +350,66 @@ body {
 .hero-cta {
   margin-top: 44px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
   animation: fadeUp 0.8s cubic-bezier(.22,1,.36,1) 0.75s both;
 }
 
-.btn-play {
+.btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 18px 40px;
-  background: linear-gradient(135deg, var(--gray-900) 0%, #333 100%);
+  gap: 10px;
+  padding: 18px 44px;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
   color: #fff;
   border-radius: 18px;
   text-decoration: none;
   font-size: 1.05rem;
   font-weight: 700;
   transition: transform 0.25s, box-shadow 0.25s;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 24px rgba(249,115,22,0.3), 0 2px 8px rgba(249,115,22,0.15);
   position: relative;
   overflow: hidden;
 }
 
-.btn-play::after {
+.btn-primary::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
   pointer-events: none;
 }
 
-.btn-play:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
-.btn-play svg { width: 22px; height: 22px; }
+.btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 40px rgba(249,115,22,0.4); }
 
-.btn-sub { font-size: 0.8rem; color: var(--gray-400); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 32px;
+  background: #fff;
+  color: var(--gray-800);
+  border: 1.5px solid var(--gray-200);
+  border-radius: 18px;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.btn-secondary:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: var(--gray-400); }
+.btn-secondary svg { width: 20px; height: 20px; }
+
+.btn-sub {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--gray-400);
+}
 
 .hero-scroll {
   position: absolute;
@@ -1102,6 +1127,31 @@ body {
 .btn-play-light:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(249,115,22,0.45); }
 .btn-play-light svg { width: 22px; height: 22px; }
 
+.cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-play-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.btn-play-outline:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.6); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.btn-play-outline svg { width: 20px; height: 20px; }
+
 /* ─── Pricing ─── */
 .pricing {
   padding: 110px 24px;
@@ -1595,7 +1645,7 @@ footer a:hover { color: #fff; }
   </div>
 
   <h1><span class="accent en">IELTS VOCA</span><br>아이엘츠 보카</h1>
-  <p class="hero-sub">IELTS 시험 준비, 이 앱 하나로 끝내세요</p>
+  <p class="hero-sub">IELTS 필수 어휘 4,800개를 지금 바로, 무료로</p>
 
   <div class="hero-chips">
     <span class="chip c-orange">
@@ -1604,20 +1654,23 @@ footer a:hover { color: #fff; }
     </span>
     <span class="chip c-green">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
-      7가지 학습
+      회원가입 없이 바로 학습
     </span>
     <span class="chip c-blue">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      오프라인 지원
+      SRS 간격반복 복습
     </span>
   </div>
 
   <div class="hero-cta">
-    <a href="https://play.google.com/store/apps/details?id=com.young.ielts_prep" class="btn-play" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.396 12l2.302-2.302zM5.864 2.658L16.8 9.99l-2.302 2.302-8.635-8.635z"/></svg>
-      Google Play에서 다운로드
+    <a href="vocab.html" class="btn-primary">
+      무료로 학습 시작하기
     </a>
-    <span class="btn-sub">Android 7.0 이상 &middot; 무료 다운로드</span>
+    <a href="https://play.google.com/store/apps/details?id=com.young.ielts_prep" class="btn-secondary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.396 12l2.302-2.302zM5.864 2.658L16.8 9.99l-2.302 2.302-8.635-8.635z"/></svg>
+      앱 다운로드
+    </a>
+    <span class="btn-sub">웹에서 바로 학습 &middot; 앱 설치 없이 무료</span>
   </div>
 
   <div class="hero-scroll">
@@ -1629,7 +1682,7 @@ footer a:hover { color: #fff; }
 <section class="stats">
   <div class="stats-grid">
     <div class="stat-item reveal">
-      <div class="stat-num en">4,000+</div>
+      <div class="stat-num en">4,800+</div>
       <div class="stat-label">IELTS 핵심 어휘</div>
     </div>
     <div class="stat-item reveal reveal-d1">
@@ -1637,7 +1690,7 @@ footer a:hover { color: #fff; }
       <div class="stat-label">문법 레슨 & 퀴즈</div>
     </div>
     <div class="stat-item reveal reveal-d2">
-      <div class="stat-num en">5</div>
+      <div class="stat-num en">9</div>
       <div class="stat-label">밴드 레벨 (4.0~8.0)</div>
     </div>
     <div class="stat-item reveal reveal-d3">
@@ -2065,12 +2118,17 @@ footer a:hover { color: #fff; }
 <!-- CTA Banner -->
 <section class="cta-banner">
   <div class="cta-content reveal">
-    <h2>목표 밴드, 지금 시작하세요</h2>
-    <p>배치 테스트로 현재 수준을 진단하고, 맞춤 학습을 시작합니다</p>
-    <a href="https://play.google.com/store/apps/details?id=com.young.ielts_prep" class="btn-play-light" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.396 12l2.302-2.302zM5.864 2.658L16.8 9.99l-2.302 2.302-8.635-8.635z"/></svg>
-      무료로 시작하기
-    </a>
+    <h2>지금 바로 IELTS 어휘 학습을 시작하세요</h2>
+    <p>회원가입 없이, 앱 설치 없이 — 웹에서 바로 무료 학습</p>
+    <div class="cta-buttons">
+      <a href="vocab.html" class="btn-play-light">
+        무료 단어 학습 시작
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.young.ielts_prep" class="btn-play-outline" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.396 12l2.302-2.302zM5.864 2.658L16.8 9.99l-2.302 2.302-8.635-8.635z"/></svg>
+        앱에서 더 많은 기능
+      </a>
+    </div>
   </div>
 </section>
 
@@ -2123,8 +2181,8 @@ footer a:hover { color: #fff; }
   <div class="earlybird-bar reveal">
     <span class="eb-icon">⏰</span>
     <div class="eb-text">
-      <strong>얼리버드 특가는 5월 말까지!</strong><br>
-      6월 1일부터 평생 이용권이 정가 &#8361;69,900으로 돌아갑니다.
+      <strong>런칭 기념 특가 진행 중!</strong><br>
+      평생 이용권을 지금 &#8361;59,900에 만나보세요. 조기 종료될 수 있습니다.
     </div>
   </div>
 
