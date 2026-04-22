@@ -1,6 +1,6 @@
 {
-  "latest": "1.0.6",
+  "latest": "1.0.7",
   "minVersion": "1.0.0",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.young.ielts_prep",
-  "releaseNotes": "단어 밴드 재분류 269개(4.0~8.0 정합성 개선), 워드팩 업데이트 기능(설치 단어 진도 보존), 빈도 랭킹 자동 재산정"
+  "releaseNotes": "문법 문제 부분입력 지원(바꿀 부분만 파란색 괄호로 표시·입력), 답안 시제 번역 교정, 쉼표·구두점 유연 매칭, 게임 결과 화면 체크 배지 제거"
 }
