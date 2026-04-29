@@ -1,6 +1,6 @@
 {
-  "latest": "1.0.7",
+  "latest": "1.0.8",
   "minVersion": "1.0.0",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.young.ielts_prep",
-  "releaseNotes": "문법 문제 부분입력 지원(바꿀 부분만 파란색 괄호로 표시·입력), 답안 시제 번역 교정, 쉼표·구두점 유연 매칭, 게임 결과 화면 체크 배지 제거"
+  "releaseNotes": "단어 전용 레벨 테스트 추가, 문장만들기 Lv1-3 정체 해소·문제은행 확장, 보카 매칭게임 셋트 단위 진행 + 단어변형 진행 반영, 발음기호 백필, 설정 정리"
 }
