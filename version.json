@@ -1,6 +1,6 @@
 {
-  "latest": "1.0.8",
+  "latest": "1.0.9",
   "minVersion": "1.0.0",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.young.ielts_prep",
-  "releaseNotes": "단어 전용 레벨 테스트 추가, 문장만들기 Lv1-3 정체 해소·문제은행 확장, 보카 매칭게임 셋트 단위 진행 + 단어변형 진행 반영, 발음기호 백필, 설정 정리"
+  "releaseNotes": "단어 배열 게임 오답 처리 버그 수정 및 홈 화면 진행률 표시 개선"
 }
