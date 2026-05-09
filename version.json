@@ -1,6 +1,6 @@
 {
-  "latest": "1.0.10",
+  "latest": "1.0.11",
   "minVersion": "1.0.0",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.young.ielts_prep",
-  "releaseNotes": "결제 안정성 개선, 학습 시간 측정 정확도 향상"
+  "releaseNotes": "안정성 개선, 음성 인식 정확도 향상, 에러 처리 강화"
 }
