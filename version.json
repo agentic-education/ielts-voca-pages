@@ -1,6 +1,6 @@
 {
-  "latest": "1.0.12",
+  "latest": "1.0.13",
   "minVersion": "1.0.0",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.young.ielts_prep",
-  "releaseNotes": "Writing·Speaking 무료 체험 추가, 점수 안내 보강, UX 정리"
+  "releaseNotes": "개인정보처리방침·이용약관을 앱 내 설정에서 바로 확인할 수 있도록 추가"
 }
